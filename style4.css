@@ -28,7 +28,7 @@ html {
     background-color: var(--background-color);
     background-image: url(images/bg.webp);
     background-size: cover;
-    background-position: 50%;
+    background-position: 50% 75%;
     background-attachment: fixed;
 }
 
