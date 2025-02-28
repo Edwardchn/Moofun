@@ -546,7 +546,7 @@ nav ul li a:hover {
 
 footer {
     background: rgba(172, 198, 232, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
     padding: 20px 0;
     text-align: center;
 }
