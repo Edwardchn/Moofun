@@ -945,10 +945,12 @@ ul li .descr::before {
     .about-content {
         flex-direction: column;
         text-align: center;
+        /* 
         background-image: url(images/aboutmoo.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center calc(100% - 30px);
+        */
         padding: 0;
         overflow: hidden;
     }
