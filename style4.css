@@ -101,6 +101,11 @@ nav ul {
     header {
         background: none;
     }
+	
+	nav ul li
+	{
+		display:block !important;
+	}
 
     nav ul {
         display: none;
