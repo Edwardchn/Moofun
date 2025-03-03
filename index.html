@@ -25,6 +25,7 @@
       </div>
       <div class="menu-toggle">☰</div>
       <nav>
+		<button class="close-btn">✖</button>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -283,8 +284,17 @@
         $("header").removeClass("scrolled");
       }
     });
-    $(".menu-toggle").click(function () {
-      $("nav ul").toggleClass("active");
+
+	
+    $(".menu-toggle").click(function ()
+	{
+		$("nav ul").toggleClass("active");
+		$(".close-btn").css("display", "block"); // 显示关闭按钮
+    });
+	
+	$(".close-btn").click(function () {
+      $("nav ul").removeClass("active");
+      $(".close-btn").css("display", "none"); // 显示关闭按钮
     });
     $(document).ready(function () {
       // Smooth scrolling for navigation links
@@ -319,6 +329,14 @@
 
       targets.forEach(target => observer.observe(target));
 
+		// 点击菜单外部时自动关闭
+		$(document).click(function (event)
+		{
+			if (!$(event.target).closest("nav, .menu-toggle").length) {
+				$("nav ul").removeClass("active");
+				$(".close-btn").css("display", "none"); // 显示关闭按钮
+			}
+		});
       // Animate features on scroll
       // $(window).scroll(function () {
       //   $('.feature-item, .roadmap-item').each(function () {
