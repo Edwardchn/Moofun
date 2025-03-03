@@ -106,13 +106,28 @@ nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 0;
         right: 0;
-        background: rgba(172, 198, 232, 0.8);
-        width: 200px;
+        width: 250px;
+        height: 100vh;
+        background: rgba(172, 198, 232);
         border-radius: 10px;
-        padding: 15px 70px;
-        height: 88vh;
+        padding: 80px 20px 30px;
+		margin-top: 0;
+		
+		/*
+		position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 20px 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+		*/
     }
 
     nav ul.active {
@@ -129,7 +144,24 @@ nav ul {
         padding: 5px 10px;
         color: white;
         /* 让 "中文" 也保持合适的点击区域 */
+    }    /* 关闭按钮 */
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+		z-index: 1;
     }
+}
+.close-btn
+{
+	display:none;
 }
 
 nav ul li {
@@ -945,12 +977,10 @@ ul li .descr::before {
     .about-content {
         flex-direction: column;
         text-align: center;
-        /* 
         background-image: url(images/aboutmoo.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center calc(100% - 30px);
-        */
         padding: 0;
         overflow: hidden;
     }
