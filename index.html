@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +14,31 @@
   <link rel="icon" href="images/logo.png" type="image/png">
   <link href="style4.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .language-switcher img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    .language-select {
+      background-color: transparent;
+      border: 1px solid #FF8A3C;
+      color: #FF8A3C;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+    }
+    .language-select:focus {
+      outline: none;
+    }
+  </style>
 </head>
 
 <body style="background-image: url(images/bg.png);">
@@ -27,13 +51,19 @@
       <nav>
 		<button class="close-btn">✖</button>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how-to-play">How to Play</a></li>
-          <li style="display:none;"><a href="https://smart-bloom-998.notion.site/Moo-Fun-FAQs-1a099fa399b2808cb835d914029e3042" target="_blank">FAQs</a></li>
-          <li style="display:none;"><a href="https://smart-bloom-998.notion.site/Moo-Fun-1a099fa399b280e0bf4ad73ff76f2e3c" target="_blank">Docs</a></li>
-          <li><a href="/index-cn.html">中文</a></li>
+          <li><a href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="#how-to-play" data-i18n="nav.howToPlay">How to Play</a></li>
+          <li style="display:none;"><a href="https://smart-bloom-998.notion.site/Moo-Fun-FAQs-1a099fa399b2808cb835d914029e3042" target="_blank" data-i18n="nav.faqs">FAQs</a></li>
+          <li style="display:none;"><a href="https://smart-bloom-998.notion.site/Moo-Fun-1a099fa399b280e0bf4ad73ff76f2e3c" target="_blank" data-i18n="nav.docs">Docs</a></li>
+          <li class="language-switcher">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8A3C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='2' y1='12' x2='22' y2='12'%3E%3C/line%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'%3E%3C/path%3E%3C/svg%3E" alt="Language">
+            <select id="language-select" class="language-select" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="cn">中文</option>
+            </select>
+          </li>
         </ul>
       </nav>
     </div>
@@ -42,9 +72,9 @@
   <section id="home" class="hero">
     <div class="container hero-content">
       <div class="hero-text">
-        <h1>Spin the Wheel of Fortune and Rule the Ranch!</h1>
-        <p>Unlock rewards, compete, and win $TON</p>
-        <a href="https://t.me/moofun_bot" target="_blank" class="cta-button">Start Playing</a>
+        <h1 data-i18n="hero.title">Spin the Wheel of Fortune and Rule the Ranch!</h1>
+        <p data-i18n="hero.subtitle">Unlock rewards, compete, and win $TON</p>
+        <a href="https://t.me/moofun_bot" target="_blank" class="cta-button" data-i18n="hero.cta">Start Playing</a>
       </div>
       <div class="wheel-placeholder">
         <object style="width: 100%;height: 100%;border-radius: 50%;" data="images/spinner.svg"></object>
@@ -56,12 +86,12 @@
     <div class="container">
       <div class="about-content">
         <div class="about-text">
-          <h2 class="section-title">About MOOFUN</h2>
-          <p>
+          <h2 class="section-title" data-i18n="about.title">About MOOFUN</h2>
+          <p data-i18n="about.text1">
             MOOFUN is a **Web3 mini-game** built on Telegram and the **TON blockchain**.
             Players can join the **Spin & Win** game, earning rewards through strategy and luck.
           </p>
-          <p>
+          <p data-i18n="about.text2">
             The game introduces **multiple ways to earn rewards**, including **daily spins, challenges, and a referral
             system**.
             Players can invite friends to get **extra in-game bonuses and virtual currency rewards**.
@@ -76,15 +106,15 @@
 
   <section id="features" class="section">
     <div class="container">
-      <h2 class="section-title">Game Features</h2>
+      <h2 class="section-title" data-i18n="features.title">Game Features</h2>
       <div class="feature-grid">
         <div class="feature-item">
           <div class="feature-icon">
             <img src="images/icon-web3.png" alt="Web3 Game">
           </div>
           <div class="feature-content">
-            <h3>Web3 Competitive Game on TON</h3>
-            <p>Play within Telegram, no downloads needed. Fully decentralized, all assets tradable on-chain.</p>
+            <h3 data-i18n="features.feature1.title">Web3 Competitive Game on TON</h3>
+            <p data-i18n="features.feature1.text">Play within Telegram, no downloads needed. Fully decentralized, all assets tradable on-chain.</p>
           </div>
         </div>
         <div class="feature-item">
@@ -92,8 +122,8 @@
             <img src="images/icon-game.png" alt="Game Modes">
           </div>
           <div class="feature-content">
-            <h3>Diverse Game Modes</h3>
-            <p>Spin-to-win strategy & luck. Daily challenges, leaderboards, and KOL prize pools.</p>
+            <h3 data-i18n="features.feature2.title">Diverse Game Modes</h3>
+            <p data-i18n="features.feature2.text">Spin-to-win strategy & luck. Daily challenges, leaderboards, and KOL prize pools.</p>
           </div>
         </div>
         <div class="feature-item">
@@ -101,8 +131,8 @@
             <img src="images/icon-reward.png" alt="Rewards">
           </div>
           <div class="feature-content">
-            <h3>Reward System</h3>
-            <p>Earn daily chests, $TON rewards, ecosystem incentives, and KOL dividends.</p>
+            <h3 data-i18n="features.feature3.title">Reward System</h3>
+            <p data-i18n="features.feature3.text">Earn daily chests, $TON rewards, ecosystem incentives, and KOL dividends.</p>
           </div>
         </div>
         <div class="feature-item">
@@ -110,8 +140,8 @@
             <img src="images/icon-social.png" alt="Social Model">
           </div>
           <div class="feature-content">
-            <h3>Social Economy Model</h3>
-            <p>Invite friends to earn rewards. Global KOL prize pools, marketplace, and token incentives.</p>
+            <h3 data-i18n="features.feature4.title">Social Economy Model</h3>
+            <p data-i18n="features.feature4.text">Invite friends to earn rewards. Global KOL prize pools, marketplace, and token incentives.</p>
           </div>
         </div>
       </div>
@@ -120,29 +150,29 @@
 
   <section id="how-to-play" class="section">
     <div class="container">
-      <h2 class="section-title">How to Play</h2>
+      <h2 class="section-title" data-i18n="howToPlay.title">How to Play</h2>
       <div class="moofun-info-contain">
         <div class="moofun-info-box">
           <div class="moofun-content">
             <div class="moofun-step">
-              <h3>Step 1: Join MOOFUN</h3>
-              <p>Join the MOOFUN game via Telegram.</p>
+              <h3 data-i18n="howToPlay.step1.title">Step 1: Join MOOFUN</h3>
+              <p data-i18n="howToPlay.step1.text">Join the MOOFUN game via Telegram.</p>
             </div>
             <div class="moofun-step">
-              <h3>Step 2: Spin the Wheel</h3>
-              <p>Participate in the Spin & Win game to earn rewards.</p>
+              <h3 data-i18n="howToPlay.step2.title">Step 2: Spin the Wheel</h3>
+              <p data-i18n="howToPlay.step2.text">Participate in the Spin & Win game to earn rewards.</p>
             </div>
             <div class="moofun-step">
-              <h3>Step 3: Complete Daily Tasks</h3>
-              <p>Take on daily challenges to win more rewards.</p>
+              <h3 data-i18n="howToPlay.step3.title">Step 3: Complete Daily Tasks</h3>
+              <p data-i18n="howToPlay.step3.text">Take on daily challenges to win more rewards.</p>
             </div>
             <div class="moofun-step">
-              <h3>Step 4: Invite Friends</h3>
-              <p>Refer friends to earn extra rewards.</p>
+              <h3 data-i18n="howToPlay.step4.title">Step 4: Invite Friends</h3>
+              <p data-i18n="howToPlay.step4.text">Refer friends to earn extra rewards.</p>
             </div>
             <div class="moofun-step">
-              <h3>Step 5: Climb the Leaderboard</h3>
-              <p>Compete for leaderboard rankings and win big prizes.</p>
+              <h3 data-i18n="howToPlay.step5.title">Step 5: Climb the Leaderboard</h3>
+              <p data-i18n="howToPlay.step5.text">Compete for leaderboard rankings and win big prizes.</p>
             </div>
           </div>
           <div class="moofun-mascot">
@@ -153,78 +183,6 @@
     </div>
   </section>
 
-  <!--
-  <section id="how-to-play" class="section">
-    <div class="container">
-      <ul style="width: 100%; padding: 0; --row-gap: 8rem;">
-        <li style="--accent-color:#41516C">
-          <div class="date">Step 1: Join MOOFUN</div>
-          <div style="background: rgba(51, 51, 51, 0.8); border-radius: 15px;">
-            <div class="descr">Join the MOOFUN game via Telegram.</div>
-          </div>
-
-        </li>
-        <li style="--accent-color:#FBCA3E">
-          <div class="date">Step 2: Spin the Wheel</div>
-          <div style="background: rgba(51, 51, 51, 0.8); border-radius: 15px;">
-            <div class="descr">Participate in the Spin & Win game to earn rewards.</div>
-          </div>
-        </li>
-        <li style="--accent-color:#E24A68">
-          <div class="date">Step 3: Complete Daily Tasks</div>
-          <div style="background: rgba(51, 51, 51, 0.8); border-radius: 15px;">
-            <div class="descr">Take on daily challenges to win more rewards.</div>
-          </div>
-        </li>
-        <li style="--accent-color:#1B5F8C">
-          <div class="date">Step 4: Invite Friends</div>
-          <div style="background: rgba(51, 51, 51, 0.8); border-radius: 15px;">
-            <div class="descr">Refer friends to earn extra rewards.</div>
-          </div>
-        </li>
-        <li style="--accent-color:#E24A68">
-          <div class="date">Step 5: Climb the Leaderboard</div>
-          <div style="background: rgba(51, 51, 51, 0.8); border-radius: 15px;">
-            <div class="descr">Compete for leaderboard rankings and win big prizes.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <section id="community" class="section">
-        <div class="container">
-            <h2 class="section-title">Join the MOOFUN Community</h2>
-            <div class="community-links">
-                <a href="#" class="community-link">Telegram</a>
-                <a href="#" class="community-link">Twitter</a>
-                <a href="#" class="community-link">Discord</a>
-            </div>
-        </div>
-    </section>
-	<footer>
-        <div class="footer-logo">
-            <img src="images/logo.png" alt="MOOFUN Logo">
-        </div>
-
-        <div class="footer-resources">
-            <h3 style="color: black;">Resources</h3>
-            <p><a href="#">FAQs</a></p>
-            <p><a href="#">Docs</a></p>
-        </div>
-        
-        <div class="container">
-            <div class="partner-logos">
-                <img src="images/ton.png" alt="Partner Logo" class="partner-logo">
-                <img src="images/TONGift.png" alt="Partner Logo" class="partner-logo">
-                <img src="images/DeDust.png" alt="Partner Logo" class="partner-logo">
-                <img src="images/BountyBay.png" alt="Partner Logo" class="partner-logo">
-            </div>
-            <p style="color: black;">&copy; 2025 MOOFUN. All rights reserved.</p>
-            <p><a href="#">FAQs</a>
-            <a href="#">Docs</a></p>
-        </div>
-    </footer>
--->
   <footer>
     <div class="container footer-content">
 
@@ -235,12 +193,12 @@
       </div>
 
       <div class="footer-resources">
-        <h3>Resources</h3>
-        <p><a href="https://wirehaired-aquarius-1ae.notion.site/Moo-Fun-FAQs-1-1ab502b4d26780a7837fd123fd7ab2fe?pvs=73">FAQs</a></p>
-        <p><a href="https://wirehaired-aquarius-1ae.notion.site/Moo-Fun-1ab502b4d26780919a45c989849af6dc?pvs=73">Docs</a></p>
+        <h3 data-i18n="footer.resources">Resources</h3>
+        <p><a href="https://wirehaired-aquarius-1ae.notion.site/Moo-Fun-FAQs-1-1ab502b4d26780a7837fd123fd7ab2fe?pvs=73" data-i18n="footer.faqs">FAQs</a></p>
+        <p><a href="https://wirehaired-aquarius-1ae.notion.site/Moo-Fun-1ab502b4d26780919a45c989849af6dc?pvs=73" data-i18n="footer.docs">Docs</a></p>
       </div>
       <div class="footer-resources">
-        <h3>Contact Us</h3>
+        <h3 data-i18n="footer.contactUs">Contact Us</h3>
         <div class="social-icons">
           <a href="https://t.me/moofun_bot" target="_blank">
             <img
@@ -253,25 +211,195 @@
               alt="Twitter">
           </a>
         </div>
-        <button class="contact-button">support@moofun.com</button>
+        <button class="contact-button"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe8d8b8e8e918c8abe939191988b90d09d9193">[email&#160;protected]</a></button>
       </div>
     </div>
     <div class="container partner-section">
-      <!-- <div class="partner-logos">
-        <img src="images/ton.png" alt="Partner Logo" class="partner-logo">
-        <img src="images/TONGift.png" alt="Partner Logo" class="partner-logo">
-        <img src="images/DeDust.png" alt="Partner Logo" class="partner-logo">
-        <img src="images/BountyBay.png" alt="Partner Logo" class="partner-logo">
-      </div> -->
-      <p>&copy; 2025 MOOFUN. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2025 MOOFUN. All rights reserved.</p>
     </div>
   </footer>
 
   <div id="fullgrass"></div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script>
+    // Language translations
+    const translations = {
+      en: {
+        nav: {
+          home: "Home",
+          about: "About",
+          features: "Features",
+          howToPlay: "How to Play",
+          faqs: "FAQs",
+          docs: "Docs"
+        },
+        hero: {
+          title: "Spin the Wheel of Fortune and Rule the Ranch!",
+          subtitle: "Unlock rewards, compete, and win $TON",
+          cta: "Start Playing"
+        },
+        about: {
+          title: "About MOOFUN",
+          text1: "MOOFUN is a **Web3 mini-game** built on Telegram and the **TON blockchain**. Players can join the **Spin & Win** game, earning rewards through strategy and luck.",
+          text2: "The game introduces **multiple ways to earn rewards**, including **daily spins, challenges, and a referral system**. Players can invite friends to get **extra in-game bonuses and virtual currency rewards**."
+        },
+        features: {
+          title: "Game Features",
+          feature1: {
+            title: "Web3 Competitive Game on TON",
+            text: "Play within Telegram, no downloads needed. Fully decentralized, all assets tradable on-chain."
+          },
+          feature2: {
+            title: "Diverse Game Modes",
+            text: "Spin-to-win strategy & luck. Daily challenges, leaderboards, and KOL prize pools."
+          },
+          feature3: {
+            title: "Reward System",
+            text: "Earn daily chests, $TON rewards, ecosystem incentives, and KOL dividends."
+          },
+          feature4: {
+            title: "Social Economy Model",
+            text: "Invite friends to earn rewards. Global KOL prize pools, marketplace, and token incentives."
+          }
+        },
+        howToPlay: {
+          title: "How to Play",
+          step1: {
+            title: "Step 1: Join MOOFUN",
+            text: "Join the MOOFUN game via Telegram."
+          },
+          step2: {
+            title: "Step 2: Spin the Wheel",
+            text: "Participate in the Spin & Win game to earn rewards."
+          },
+          step3: {
+            title: "Step 3: Complete Daily Tasks",
+            text: "Take on daily challenges to win more rewards."
+          },
+          step4: {
+            title: "Step 4: Invite Friends",
+            text: "Refer friends to earn extra rewards."
+          },
+          step5: {
+            title: "Step 5: Climb the Leaderboard",
+            text: "Compete for leaderboard rankings and win big prizes."
+          }
+        },
+        footer: {
+          resources: "Resources",
+          faqs: "FAQs",
+          docs: "Docs",
+          contactUs: "Contact Us",
+          copyright: "© 2025 MOOFUN. All rights reserved."
+        }
+      },
+      cn: {
+        nav: {
+          home: "首页",
+          about: "关于我们",
+          features: "游戏特色",
+          howToPlay: "如何游玩",
+          faqs: "常见问题",
+          docs: "文档"
+        },
+        hero: {
+          title: "旋转财富之轮，统治牧场！",
+          subtitle: "解锁奖励，参与竞争，赢取 $TON",
+          cta: "开始游戏"
+        },
+        about: {
+          title: "关于 MOOFUN",
+          text1: "MOOFUN 是一款基于 Telegram 和 **TON 区块链**的 **Web3 迷你游戏**。玩家可以加入 **旋转赢取** 游戏，通过策略和运气赢得奖励。",
+          text2: "游戏引入了**多种赚取奖励的方式**，包括**每日旋转、挑战和推荐系统**。玩家可以邀请朋友获得**额外的游戏内奖励和虚拟货币奖励**。"
+        },
+        features: {
+          title: "游戏特色",
+          feature1: {
+            title: "TON 上的 Web3 竞技游戏",
+            text: "在 Telegram 内玩游戏，无需下载。完全去中心化，所有资产可在链上交易。"
+          },
+          feature2: {
+            title: "多样化游戏模式",
+            text: "旋转赢取策略与运气。每日挑战、排行榜和 KOL 奖池。"
+          },
+          feature3: {
+            title: "奖励系统",
+            text: "赢取每日宝箱、$TON 奖励、生态系统激励和 KOL 分红。"
+          },
+          feature4: {
+            title: "社交经济模式",
+            text: "邀请朋友赚取奖励。全球 KOL 奖池、市场和代币激励。"
+          }
+        },
+        howToPlay: {
+          title: "如何游玩",
+          step1: {
+            title: "步骤 1：加入 MOOFUN",
+            text: "通过 Telegram 加入 MOOFUN 游戏。"
+          },
+          step2: {
+            title: "步骤 2：旋转转盘",
+            text: "参与旋转赢取游戏以赢得奖励。"
+          },
+          step3: {
+            title: "步骤 3：完成每日任务",
+            text: "接受每日挑战以赢取更多奖励。"
+          },
+          step4: {
+            title: "步骤 4：邀请朋友",
+            text: "推荐朋友以赚取额外奖励。"
+          },
+          step5: {
+            title: "步骤 5：攀登排行榜",
+            text: "争夺排行榜排名并赢取丰厚奖励。"
+          }
+        },
+        footer: {
+          resources: "资源",
+          faqs: "常见问题",
+          docs: "文档",
+          contactUs: "联系我们",
+          copyright: "© 2025 MOOFUN。保留所有权利。"
+        }
+      }
+    };
+
+    // Function to change language
+    function changeLanguage(lang) {
+      // Update HTML lang attribute
+      document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
+      
+      // Save language preference to localStorage
+      localStorage.setItem('preferredLanguage', lang);
+      
+      // Update all elements with data-i18n attribute
+      const elements = document.querySelectorAll('[data-i18n]');
+      
+      elements.forEach(element => {
+        const keys = element.getAttribute('data-i18n').split('.');
+        let translation = translations[lang];
+        
+        // Navigate through the nested keys to get the translation
+        for (const key of keys) {
+          translation = translation[key];
+        }
+        
+        if (translation) {
+          // For elements with innerHTML (like paragraphs, headings)
+          element.innerHTML = translation;
+        }
+      });
+    }
+    
+    // Load saved language preference or default to English
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      document.getElementById('language-select').value = savedLanguage;
+      changeLanguage(savedLanguage);
+    });
+
     const now = '?' + Date.now();
     for (let link of document.querySelectorAll('link[rel="stylesheet"]:not([href^="http"])')) {
       link.href += now;
@@ -296,7 +424,7 @@
 	
 	$(".close-btn").click(function () {
       $("nav ul").removeClass("active");
-      $(".close-btn").css("display", "none"); // 显示关闭按钮
+      $(".close-btn").css("display", "none"); // 隐藏关闭按钮
     });
     $(document).ready(function () {
       // Smooth scrolling for navigation links
@@ -336,24 +464,10 @@
 		{
 			if (!$(event.target).closest("nav, .menu-toggle").length) {
 				$("nav ul").removeClass("active");
-				$(".close-btn").css("display", "none"); // 显示关闭按钮
+				$(".close-btn").css("display", "none"); // 隐藏关闭按钮
 			}
 		});
-      // Animate features on scroll
-      // $(window).scroll(function () {
-      //   $('.feature-item, .roadmap-item').each(function () {
-      //     var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-      //     var bottom_of_window = $(window).scrollTop() + $(window).height();
-      //     if (bottom_of_window > bottom_of_object) {
-      //       $(this).animate({ 'opacity': '1', 'margin-top': '0px' }, 500);
-      //     }
-      //   });
-      // });
-
-      // Initialize features and roadmap items as invisible
-      // $('.feature-item, .roadmap-item').css({ 'opacity': '0', 'margin-top': '50px' });
     });
   </script>
 </body>
-
 </html>
